@@ -1,0 +1,77 @@
+.main-container {
+    -fx-background-color: #f0f0f0;
+}
+
+.sidebar {
+    -fx-background-color: #ffffff;
+    -fx-border-color: #e0e0e0;
+    -fx-border-width: 0 1 0 0;
+}
+
+.profile-section {
+    -fx-padding: 10px;
+    -fx-background-color: #f5f5f5;
+}
+
+.profile-pic {
+    -fx-fill: #a0a0a0;
+}
+
+.username-label {
+    -fx-font-weight: bold;
+}
+
+.status-label {
+    -fx-text-fill: #4CAF50;
+}
+
+.search-field {
+    -fx-background-radius: 20;
+    -fx-padding: 5 10 5 10;
+}
+
+.contacts-header {
+    -fx-padding: 5 10 5 10;
+}
+
+.add-contact-btn {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+    -fx-background-radius: 50%;
+}
+
+.chat-header {
+    -fx-background-color: #f5f5f5;
+    -fx-padding: 10px;
+}
+
+.chat-area {
+    -fx-font-size: 14px;
+}
+
+.message-input-container {
+    -fx-padding: 10px;
+    -fx-background-color: #ffffff;
+}
+
+.message-input {
+    -fx-background-radius: 20;
+}
+
+.send-button {
+    -fx-background-color: #4CAF50;
+    -fx-text-fill: white;
+}
+
+.welcome-screen {
+    -fx-background-color: #f0f0f0;
+}
+
+.welcome-text {
+    -fx-font-size: 18px;
+    -fx-fill: #888;
+}
+
+.info-label {
+    -fx-text-fill: #FF9800;
+}

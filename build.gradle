@@ -1,0 +1,54 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.5'
+    id 'io.spring.dependency-management' version '1.1.3'
+    id 'org.openjfx.javafxplugin' version '0.1.0'
+    id 'application'
+}
+
+group = 'com.Clone.ChatClient'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Spring Boot starter
+    implementation 'org.springframework.boot:spring-boot-starter'
+
+    // WebSocket dependency
+    implementation 'jakarta.websocket:jakarta.websocket-client-api:2.1.1'
+    implementation 'org.glassfish.tyrus:tyrus-client:2.1.2'
+    implementation 'org.glassfish.tyrus:tyrus-container-grizzly-client:2.1.2'
+
+    // JavaFX dependencies
+    implementation 'org.openjfx:javafx-controls:21'
+    implementation 'org.openjfx:javafx-fxml:21'
+
+    // Test dependencies
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+javafx {
+    version = '21'
+    modules = [ 'javafx.controls', 'javafx.fxml' ]
+}
+
+application {
+    mainClass = 'com.Clone.ChatClient.ChatApplication'
+}
+
+// Optional: Keep your custom task
+tasks.register('runApp', JavaExec) {
+    group = 'application'
+    description = 'Runs the JavaFX application'
+    mainClass = 'com.Clone.ChatClient.ChatApplication'
+    classpath = sourceSets.main.runtimeClasspath
+}
+bootRun {
+    jvmArgs = [
+        "--module-path", classpath.asPath,
+        "--add-modules", "javafx.controls,javafx.fxml"
+    ]
+}

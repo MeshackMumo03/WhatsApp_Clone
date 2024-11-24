@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.shape.Circle?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.Clone.ChatClient.ChatController"
+            styleClass="main-container"
+            stylesheets="@styles.css">
+    
+    <left>
+        <VBox spacing="10" styleClass="sidebar">
+            <padding>
+                <Insets top="10" right="10" bottom="10" left="10"/>
+            </padding>
+            
+            <!-- Profile Section -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="profile-section">
+                <Circle fx:id="profilePic" radius="20" styleClass="profile-pic"/>
+                <VBox>
+                    <Label text="My Profile" styleClass="username-label"/>
+                    <Label text="Available" styleClass="status-label"/>
+                </VBox>
+            </HBox>
+            
+            <!-- Search Box -->
+            <TextField fx:id="searchField" promptText="Search contacts..." styleClass="search-field"/>
+            
+            <!-- Contacts List -->
+            <VBox VBox.vgrow="ALWAYS" styleClass="contacts-container">
+                <HBox alignment="CENTER_LEFT" spacing="10" styleClass="contacts-header">
+                    <Label text="Contacts" styleClass="section-header"/>
+                    <Region HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="addContactButton" text="+" styleClass="add-contact-btn"/>
+                </HBox>
+                <ListView fx:id="contactListView" VBox.vgrow="ALWAYS" styleClass="contacts-list"/>
+            </VBox>
+        </VBox>
+    </left>
+    
+    <center>
+        <StackPane>
+            <!-- Default View -->
+            <VBox fx:id="welcomeScreen" alignment="CENTER" spacing="20" styleClass="welcome-screen">
+                <Text text="Select a contact to start chatting" styleClass="welcome-text"/>
+                <Label text="Your messages are not encrypted" styleClass="info-label"/>
+            </VBox>
+            
+            <!-- Chat View -->
+            <VBox fx:id="chatView" visible="false">
+                <!-- Chat Header -->
+                <HBox styleClass="chat-header" alignment="CENTER_LEFT" spacing="10">
+                    <Circle fx:id="contactProfilePic" radius="15" styleClass="contact-pic"/>
+                    <VBox>
+                        <Label fx:id="contactNameLabel" styleClass="contact-name"/>
+                        <Label fx:id="contactStatusLabel" styleClass="contact-status"/>
+                    </VBox>
+                </HBox>
+                
+                <!-- Chat Area -->
+                <TextArea fx:id="chatArea" VBox.vgrow="ALWAYS" 
+                         editable="false" wrapText="true" 
+                         styleClass="chat-area"/>
+                
+                <!-- Message Input Area -->
+                <HBox spacing="10" styleClass="message-input-container">
+                    <TextField fx:id="messageField" HBox.hgrow="ALWAYS" 
+                             promptText="Type a message..." 
+                             styleClass="message-input"/>
+                    <Button fx:id="sendButton" text="Send" 
+                            styleClass="send-button"/>
+                </HBox>
+            </VBox>
+        </StackPane>
+    </center>
+    
+</BorderPane>
